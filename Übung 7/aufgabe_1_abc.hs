@@ -1,4 +1,4 @@
--- Leoni, Lisa, Ivica
+-- Leonie, Lisa, Ivica
 -- 08.12.2022
 -- 7. Aufgabenblatt zur Einheit Listen
 -- Aufgabe 1
@@ -29,9 +29,8 @@ zensiert c (x:xs)
 -- Vor.: Eingabe von einer natürlichen Zahl n und einer Liste mit ganzen Zahlen.
 -- Erg.: eine Liste aus den ersten und letzten n Elemente
 dropTake :: Int -> [Int] -> [Int]
-dropTake n (x:xs) = takeFirst xs where
-    takeFirst 0 _ = []
-    takeFirst _ [] = []
-    takeFirst n (x:xs)
-        | n > 0 = x:(takeFirst (n-1) xs)
-dropTake 0 (x:xs)
+dropTake _ [] = []
+dropTake 0 xs = []
+dropTake n xs
+    | 2*n < length (xs) = take n xs ++ reverse(take n (reverse xs))
+    | otherwise = xs
